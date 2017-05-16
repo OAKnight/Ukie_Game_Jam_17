@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Assets/Beat Detection/TestingScene.unity
+- path: Assets/OK_Stuff/OK_Scenes/OK_Test.unity
   isLoaded: 1
   isActive: 1
