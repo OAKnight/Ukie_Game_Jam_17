@@ -31,9 +31,13 @@ public class OK_MovementTest : MonoBehaviour {
         float fl_angler = Mathf.Atan2(fl_rightx, fl_righty);
 
         transform.rotation = Quaternion.EulerAngles(0, fl_angler, 0);
- 
 
+        if (transH == 0 && transV == 0)
+        
+        {
+            transform.position = transform.position;
 
+        }
 
     }
 }
