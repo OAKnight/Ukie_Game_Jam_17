@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class OK_MovementTest : MonoBehaviour {
 
+    
     public float fl_SpeedH;
     public float fl_SpeedV;
 
-    public float yRotation;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update () {
         Control();
-
-        print(transform.eulerAngles.y);
 	}
 
     void Control()
     {
+        
+        // Left analog controls to move the PC within the space
         float transV = Input.GetAxis("Vertical") * fl_SpeedV;
         float transH = Input.GetAxis("Horizontal") * fl_SpeedH;
         transV *= Time.deltaTime;
@@ -29,8 +24,15 @@ public class OK_MovementTest : MonoBehaviour {
         transform.position += new Vector3(0, 0, transV);
         transform.position += new Vector3(transH, 0, 0);
 
-        yRotation += Input.GetAxis("LeftHor");
-        transform.eulerAngles = new Vector3(0, yRotation, 0);
+        // Right analog stick, this is used to control the player facing.
+        float fl_rightx = Input.GetAxis("Right_Hor");
+        float fl_righty = Input.GetAxis("Right_Vert");
+
+        float fl_angler = Mathf.Atan2(fl_rightx, fl_righty);
+
+        transform.rotation = Quaternion.EulerAngles(0, fl_angler, 0);
+ 
+
 
 
     }
